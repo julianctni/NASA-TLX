@@ -28,11 +28,9 @@ public class TlxMainMenue extends JFrame {
 			}
 		});
 		btnStartTlx.setBounds(300, 200, 200, 50);
-		contentPane.add(btnStartTlx);
+		contentPane.add(btnStartTlx);		
 		
-		
-		
-		JButton btnAnalyse = new JButton("Analyse");
+		JButton btnAnalyse = new JButton("Analysis");
 		btnAnalyse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//ViewController controller = ViewController.getInstance();
@@ -42,8 +40,18 @@ public class TlxMainMenue extends JFrame {
 		btnAnalyse.setBounds(300, 260, 200, 50);
 		contentPane.add(btnAnalyse);
 		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				ViewController.getInstance().values.clear();
+				ViewController.getInstance().weights.clear();
+			}
+		});
+		btnReset.setBounds(300, 355, 200, 50);
+		contentPane.add(btnReset);
 		
-		JButton btnClose = new JButton("Beenden");
+		
+		JButton btnClose = new JButton("Close");
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TlxMainMenue.this.processWindowEvent(
@@ -51,7 +59,7 @@ public class TlxMainMenue extends JFrame {
 		                      TlxMainMenue.this, WindowEvent.WINDOW_CLOSING));
 			}
 		});
-		btnClose.setBounds(300, 355, 200, 50);
+		btnClose.setBounds(300, 415, 200, 50);
 		contentPane.add(btnClose);
 	}
 

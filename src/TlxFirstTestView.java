@@ -236,6 +236,7 @@ public class TlxFirstTestView extends JFrame {
 		btnSaveTLX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int[] weightCounts = {0,0,0,0,0,0};
+				boolean reset = true;
 				for(JRadioButton Btn : radBtns){
 					if(Btn.isSelected()){
 						String name = Btn.getText();
@@ -259,6 +260,13 @@ public class TlxFirstTestView extends JFrame {
 								weightCounts[5]++;
 								break;
 						}
+					}
+					if(reset){
+						Btn.setSelected(true);
+						reset = false;				
+					} else {
+						Btn.setSelected(false);
+						reset = true;
 					}
 				}
 				ViewController.getInstance().weights.add(weightCounts);

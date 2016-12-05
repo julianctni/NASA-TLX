@@ -47,6 +47,7 @@ public class TlxTestView extends JFrame {
 				int[] tempArray = new int[6];
 				for(JSlider Sld : sliders){
 					tempArray[i] = Sld.getValue();
+					Sld.setValue(50);
 					i++;
 				}
 				ViewController.getInstance().values.add(tempArray);
