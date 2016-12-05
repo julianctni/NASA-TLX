@@ -26,8 +26,6 @@ public class TlxTestView extends JFrame {
 	private int mWindowWidth;
 	private int sliderCount = 0;
 	private JSlider[] sliders = new JSlider[6];
-	private int[] testWeights;
-	private int[] values = {0, 0, 0, 0, 0, 0};
 
 	public TlxTestView(int windowWidth, int windowHeight) {
 		mWindowWidth = windowWidth;
@@ -46,14 +44,13 @@ public class TlxTestView extends JFrame {
 		btnSaveTLX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int i = 0;
+				int[] tempArray = new int[6];
 				for(JSlider Sld : sliders){
-					values[i] = Sld.getValue();
+					tempArray[i] = Sld.getValue();
 					i++;
 				}
-				ViewController.getInstance().values.add(values);
-				for(int j = 0; j < values.length; j++){
-					values[j] = 0;
-				}
+				ViewController.getInstance().values.add(tempArray);
+
 				ViewController.getInstance().showMainMenue(TlxTestView.this);
 			}
 		});
