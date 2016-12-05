@@ -1,6 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,8 +10,7 @@ import javax.swing.border.EmptyBorder;
 
 public class TlxMainMenue extends JFrame {
 
-	private JPanel contentPane;
-	
+	private JPanel contentPane;	
 
 	public TlxMainMenue(int windowWith, int windowHeight) {
 		
@@ -24,7 +24,7 @@ public class TlxMainMenue extends JFrame {
 		JButton btnStartTlx = new JButton("New TLX");
 		btnStartTlx.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ViewController.getInstance().showTest(TlxMainMenue.this);
+				ViewController.getInstance().showFirstTest(TlxMainMenue.this);
 			}
 		});
 		btnStartTlx.setBounds(300, 200, 200, 50);
@@ -35,6 +35,7 @@ public class TlxMainMenue extends JFrame {
 		JButton btnAnalyse = new JButton("Analyse");
 		btnAnalyse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//ViewController controller = ViewController.getInstance();
 				ViewController.getInstance().showAnalysis(TlxMainMenue.this);
 			}
 		});

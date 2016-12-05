@@ -24,6 +24,10 @@ import javax.swing.JLabel;
 public class TlxTestView extends JFrame {
 
 	private int mWindowWidth;
+	private int sliderCount = 0;
+	private JSlider[] sliders = new JSlider[6];
+	private int[] testWeights;
+	private int[] values;
 
 	public TlxTestView(int windowWidth, int windowHeight) {
 		mWindowWidth = windowWidth;
@@ -41,6 +45,15 @@ public class TlxTestView extends JFrame {
 		JButton btnSaveTLX = new JButton("Absenden");
 		btnSaveTLX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int i = 0;
+				for(JSlider Sld : sliders){
+					values[i] = Sld.getValue();
+					i++;
+				}
+				ViewController.getInstance().values.add(values);
+				for(int j = 0; j < values.length; j++){
+					values[j] = 0;
+				}
 				ViewController.getInstance().showMainMenue(TlxTestView.this);
 			}
 		});
@@ -62,23 +75,26 @@ public class TlxTestView extends JFrame {
 		contentPane.setBorder(BorderFactory.createTitledBorder(labelText));
 		
 		JSlider sliderMD = new JSlider();
-	    sliderMD.setMinorTickSpacing(2);
+	    sliderMD.setMinorTickSpacing(5);
 	    sliderMD.setMajorTickSpacing(10);
 	    sliderMD.setPaintLabels(true);
 	    sliderMD.setPaintTicks(true);
 	    sliderMD.setBounds(10, 25, 550, 50);
 	    sliderMD.setLabelTable(sliderMD.createStandardLabels(10));
+	    sliderMD.setSnapToTicks(true);	 
 	    
-	 
+	    addSliderToArray(sliderMD);
 	    
 	    JLabel valueMD = new JLabel(""+sliderMD.getValue());
-	    valueMD.setBounds(630, 25, 30, 30);
+	    valueMD.setBounds(630, 25, 50, 30);
 	    
 	    valueMD.setFont(new Font("Sans-Serif", Font.PLAIN, 22));
-		
+	    
 		sliderMD.addChangeListener(new ChangeListener(){
 	    	public void stateChanged(ChangeEvent changeEvent) {
-	    		valueMD.setText(sliderMD.getValue()+"");
+	    		int value = sliderMD.getValue();
+	    		int newValue = value - value%5;
+	    		valueMD.setText(newValue+"");
 	    	}
 	    });
 		
@@ -86,5 +102,12 @@ public class TlxTestView extends JFrame {
 		contentPane.add(valueMD);
 		
 		return contentPane;
+	}
+	
+	public void addSliderToArray(JSlider slider){
+		sliders[sliderCount] = slider;
+		sliderCount++;
+		if(sliderCount == 6)
+			sliderCount = 0;
 	}
 }
