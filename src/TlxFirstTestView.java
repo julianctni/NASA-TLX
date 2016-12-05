@@ -30,7 +30,6 @@ public class TlxFirstTestView extends JFrame {
 	private int mWindowWidth;
 	private int radBtnCount = 0;
 	private JRadioButton[] radBtns = new JRadioButton[30];
-	private int[] weightCounts = {0, 0, 0, 0, 0, 0};
 
 	public TlxFirstTestView(int windowWidth, int windowHeight) {
 		mWindowWidth = windowWidth;
@@ -236,6 +235,7 @@ public class TlxFirstTestView extends JFrame {
 	    JButton btnSaveTLX = new JButton("Absenden");
 		btnSaveTLX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				int[] weightCounts = {0,0,0,0,0,0};
 				for(JRadioButton Btn : radBtns){
 					if(Btn.isSelected()){
 						String name = Btn.getText();
@@ -262,9 +262,6 @@ public class TlxFirstTestView extends JFrame {
 					}
 				}
 				ViewController.getInstance().weights.add(weightCounts);
-				for(int i = 0; i < weightCounts.length; i++){
-					weightCounts[i] = 0;
-				}
 				ViewController.getInstance().showTest(TlxFirstTestView.this);				
 			}
 		});
