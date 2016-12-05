@@ -27,7 +27,7 @@ public class TlxTestView extends JFrame {
 	private int sliderCount = 0;
 	private JSlider[] sliders = new JSlider[6];
 	private int[] testWeights;
-	private int[] values;
+	private int[] values = {0, 0, 0, 0, 0, 0};
 
 	public TlxTestView(int windowWidth, int windowHeight) {
 		mWindowWidth = windowWidth;
