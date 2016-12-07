@@ -15,7 +15,6 @@ public class TlxMainView {
 					TlxMainView window = new TlxMainView();
 					ViewController controller = ViewController.getInstance();
 					UIManager.put("Button.select",Color.BLACK);
-					UIManager.put("Slider.thumb", Color.BLACK);
 					controller.showMainMenue(null);
 					
 				} catch (Exception e) {

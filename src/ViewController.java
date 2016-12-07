@@ -38,14 +38,13 @@ public class ViewController {
 			hideFrame.setVisible(false);
 			mainMenueFrame.setBounds(hideFrame.getBounds().x, hideFrame.getBounds().y, hideFrame.getBounds().width, hideFrame.getBounds().height);
 		}
-		mainMenueFrame.enableExportAndAnalysis(!weights.isEmpty() && !values.isEmpty());
+		mainMenueFrame.enableButtons(!weights.isEmpty() && !values.isEmpty());
 		mainMenueFrame.setVisible(true);
 		
 	}
 	
 	public void showAnalysis (JFrame hideFrame){
-		if (analysisFrame == null)
-			analysisFrame = new TlxAnalysisView(windowWidth, windowHeight);
+		analysisFrame = new TlxAnalysisView(windowWidth, windowHeight);
 		if (hideFrame != null){
 			hideFrame.setVisible(false);
 			analysisFrame.setBounds(hideFrame.getBounds().x, hideFrame.getBounds().y, hideFrame.getBounds().width, hideFrame.getBounds().height);

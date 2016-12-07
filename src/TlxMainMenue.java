@@ -21,6 +21,7 @@ public class TlxMainMenue extends JFrame {
 	private JButton btnSave;
 	private JButton btnExport;
 	private JButton btnAnalysis;
+	private JButton btnReset;
 	
 
 	public TlxMainMenue(int windowWith, int windowHeight) {
@@ -42,17 +43,28 @@ public class TlxMainMenue extends JFrame {
 		contentPane.add(btnStartTlx);
 		
 		
-		
+	
 		btnAnalysis = CustomButtonFactory.createNewButton("Analysis", 275, 260, 250, 50);
 		btnAnalysis.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ViewController.getInstance().showAnalysis(TlxMainMenue.this);
 			}
-		});		
+		});
 		contentPane.add(btnAnalysis);
 		
 		
-		btnExport = CustomButtonFactory.createNewButton("Export", 275, 330, 250, 50);
+		btnReset = CustomButtonFactory.createNewButton("Reset", 275, 320, 250, 50);
+		btnReset.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				ViewController.getInstance().values.clear();
+				ViewController.getInstance().weights.clear();
+				enableButtons(false);
+			}
+		});
+		contentPane.add(btnReset);
+		
+		
+		btnExport = CustomButtonFactory.createNewButton("Export", 275, 380, 250, 50);
 		btnExport.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				btnSave.setVisible(!btnSave.isVisible());
@@ -64,14 +76,14 @@ public class TlxMainMenue extends JFrame {
 		
 		exportName = new JTextField();
 		exportName.setVisible(false);
-		exportName.setBounds(275, 390, 190, 25);
+		exportName.setBounds(275, 440, 190, 25);
 		exportName.setBackground(Color.DARK_GRAY);
 		exportName.setForeground(Color.decode("#EEEEEE"));
 		exportName.setCaretColor(Color.decode("#EEEEEE"));
 		exportName.setText("tlx-"+Calendar.getInstance().getTimeInMillis());
 		contentPane.add(exportName);
 		
-		btnSave = CustomButtonFactory.createNewButton("Save", 475, 390, 50, 26);
+		btnSave = CustomButtonFactory.createNewButton("Save", 475, 440, 50, 26);
 		btnSave.setVisible(false);
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -87,7 +99,11 @@ public class TlxMainMenue extends JFrame {
 		
 		
 		
-		JButton btnClose = CustomButtonFactory.createNewButton("Close", 300, 460, 200, 50);
+		
+
+		
+		JButton btnClose = CustomButtonFactory.createNewButton("Close", 300, 480, 200, 50);
+
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				TlxMainMenue.this.processWindowEvent(
@@ -98,9 +114,10 @@ public class TlxMainMenue extends JFrame {
 		contentPane.add(btnClose);
 	}
 	
-	public void enableExportAndAnalysis(boolean enable){
+	public void enableButtons(boolean enable){
 		btnAnalysis.setEnabled(enable);
 		btnExport.setEnabled(enable);
+		btnReset.setEnabled(enable);
 	}
 	
 }
