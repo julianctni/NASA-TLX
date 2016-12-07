@@ -12,6 +12,8 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.JSlider;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
@@ -27,19 +29,18 @@ public class TlxTestView extends JFrame {
 	public TlxTestView(int windowWidth, int windowHeight) {
 		mWindowWidth = windowWidth;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, windowWidth, windowHeight);
 		JPanel main = new JPanel();
-		main.setBorder(new EmptyBorder(0, 0, 0, 0));
+		main.setBorder(null);
 		main.setBackground(Color.DARK_GRAY);
 		main.setLayout(null);
 		int yPos = 20;
 		main.add(addNewSlider("How mentally demanding was the task?",yPos));
-		main.add(addNewSlider("How physically demanding was the task?",yPos+=120));
-		main.add(addNewSlider("How hurried or rushed was the pace of the task?",yPos+=120));
-		main.add(addNewSlider("How successful were you in accomplishing what you were asked to do?",yPos+=120));
-		main.add(addNewSlider("How hard did you have to work to accomplish your level of performance?",yPos+=120));
-		main.add(addNewSlider("How insecure, discouraged, irritated, stressed, and annoyed were you?",yPos+=120));
-		JButton btnSaveTLX = CustomButtonFactory.createNewButton("Absenden", 510, yPos+=120, 200, 50);
+		main.add(addNewSlider("How physically demanding was the task?",yPos+=100));
+		main.add(addNewSlider("How hurried or rushed was the pace of the task?",yPos+=100));
+		main.add(addNewSlider("How successful were you in accomplishing what you were asked to do?",yPos+=100));
+		main.add(addNewSlider("How hard did you have to work to accomplish your level of performance?",yPos+=100));
+		main.add(addNewSlider("How insecure, discouraged, irritated, stressed, and annoyed were you?",yPos+=100));
+		JButton btnSaveTLX = CustomButtonFactory.createNewButton("Finish test", 500, yPos+=90, 250, 50);
 		btnSaveTLX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int i = 0;
@@ -65,19 +66,21 @@ public class TlxTestView extends JFrame {
 		
 	}
 	
+	int count = 1;
+	
 	public JPanel addNewSlider(String labelText, int yPosition){
 		JPanel contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
+		
 		contentPane.setLayout(null);
-		contentPane.setBounds(10, yPosition, mWindowWidth-100, 100);
+		contentPane.setBounds(50, yPosition, mWindowWidth-100, 80);
 		TitledBorder border = BorderFactory.createTitledBorder(labelText);
-		border.setTitleFont(new Font("Sans-Serif", Font.BOLD, 14));
+		border.setTitleFont(new Font("Sans-Serif", Font.BOLD, 13));
 		border.setTitleColor(Color.decode("#EEEEEE"));
 		border.setBorder(new MatteBorder(1, 1, 1, 1, Color.decode("#EEEEEE")));
 		contentPane.setBorder(border);
 		
 		JSlider sliderMD = new JSlider();
-		sliderMD.setBackground(Color.DARK_GRAY);
+		
 		sliderMD.setForeground(Color.decode("#EEEEEE"));
 	    sliderMD.setMinorTickSpacing(5);
 	    sliderMD.setMajorTickSpacing(10);
@@ -86,6 +89,11 @@ public class TlxTestView extends JFrame {
 	    sliderMD.setBounds(10, 25, 550, 50);
 	    sliderMD.setLabelTable(sliderMD.createStandardLabels(10));
 	    sliderMD.setSnapToTicks(true);
+	    
+		contentPane.setBackground(Color.DARK_GRAY);
+		sliderMD.setBackground(Color.DARK_GRAY);
+	    
+		count++;
 	    
 	    addSliderToArray(sliderMD);
 	    

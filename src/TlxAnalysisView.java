@@ -24,9 +24,8 @@ public class TlxAnalysisView extends JFrame {
 	public TlxAnalysisView(int windowWidth, int windowHeight) {
 		mWindowWidth = windowWidth;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, windowWidth, windowHeight);
 		JPanel main = new JPanel();
-		main.setBorder(new EmptyBorder(0, 0, 0, 0));
+		main.setBorder(null);
 		main.setBackground(Color.DARK_GRAY);
 		main.setLayout(null);
 
@@ -46,7 +45,7 @@ public class TlxAnalysisView extends JFrame {
 		this.add(scrollFrame);
 		
 		
-		JButton btnBackButton = CustomButtonFactory.createNewButton("Zurück", 10, yPos, 200, 50);
+		JButton btnBackButton = CustomButtonFactory.createNewButton("Back", 10, yPos, 200, 50);
 		btnBackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ViewController.getInstance().showMainMenue(TlxAnalysisView.this);

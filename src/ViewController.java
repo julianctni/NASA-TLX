@@ -10,7 +10,8 @@ public class ViewController {
 	private JFrame testFrame;
 	private JFrame firstTestFrame;
 	int windowWidth = 800;
-	int windowHeight = 650;
+	int windowHeight = 680;
+	int x,y;
 	
 	public List<int[]> weights = new ArrayList<int[]>();
 	public List<int[]> values = new ArrayList<int[]>();
@@ -33,7 +34,7 @@ public class ViewController {
 	public void showMainMenue (JFrame hideFrame){
 		if (hideFrame != null){
 			hideFrame.setVisible(false);
-			mainMenueFrame.setBounds(hideFrame.getBounds().x, hideFrame.getBounds().y, hideFrame.getBounds().width, hideFrame.getBounds().height);
+			mainMenueFrame.setBounds(hideFrame.getBounds().x-1, 30, hideFrame.getBounds().width, hideFrame.getBounds().height);
 		}
 		mainMenueFrame.enableButtons(!weights.isEmpty() && !values.isEmpty());
 		mainMenueFrame.setVisible(true);
@@ -44,7 +45,8 @@ public class ViewController {
 		analysisFrame = new TlxAnalysisView(windowWidth, windowHeight);
 		if (hideFrame != null){
 			hideFrame.setVisible(false);
-			analysisFrame.setBounds(hideFrame.getBounds().x, hideFrame.getBounds().y, hideFrame.getBounds().width, hideFrame.getBounds().height);
+			analysisFrame.setBounds(hideFrame.getBounds().x-1, 30, hideFrame.getBounds().width, hideFrame.getBounds().height);
+
 		}
 		
 		analysisFrame.setVisible(true);
@@ -53,7 +55,8 @@ public class ViewController {
 	public void showFirstTest(JFrame hideFrame){
 		if (hideFrame != null){
 			hideFrame.setVisible(false);
-			firstTestFrame.setBounds(hideFrame.getBounds().x, hideFrame.getBounds().y, hideFrame.getBounds().width, hideFrame.getBounds().height);
+			firstTestFrame.setBounds(hideFrame.getBounds().x-1, 30, hideFrame.getBounds().width, hideFrame.getBounds().height);
+
 		}
 		firstTestFrame.setVisible(true);
 	}
@@ -61,7 +64,7 @@ public class ViewController {
 	public void showTest (JFrame hideFrame){
 		if (hideFrame != null) {
 			hideFrame.setVisible(false);
-			testFrame.setBounds(hideFrame.getBounds().x, hideFrame.getBounds().y, hideFrame.getBounds().width, hideFrame.getBounds().height);
+			testFrame.setBounds(hideFrame.getBounds().x-1, 30, hideFrame.getBounds().width, hideFrame.getBounds().height);
 		}
 		testFrame.setVisible(true);
 	}
