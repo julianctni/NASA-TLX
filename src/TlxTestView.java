@@ -18,6 +18,9 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.JSlider;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
 
 
@@ -32,6 +35,8 @@ public class TlxTestView extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, windowWidth, windowHeight);
 		JPanel main = new JPanel();
+		main.setBorder(new EmptyBorder(0, 0, 0, 0));
+		main.setBackground(Color.DARK_GRAY);
 		main.setLayout(null);
 		int yPos = 20;
 		main.add(addNewSlider("How mentally demanding was the task?",yPos));
@@ -40,7 +45,7 @@ public class TlxTestView extends JFrame {
 		main.add(addNewSlider("How successful were you in accomplishing what you were asked to do?",yPos+=120));
 		main.add(addNewSlider("How hard did you have to work to accomplish your level of performance?",yPos+=120));
 		main.add(addNewSlider("How insecure, discouraged, irritated, stressed, and annoyed were you?",yPos+=120));
-		JButton btnSaveTLX = new JButton("Absenden");
+		JButton btnSaveTLX = CustomButtonFactory.createNewButton("Absenden", 510, yPos+=120, 200, 50);
 		btnSaveTLX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int i = 0;
@@ -54,12 +59,12 @@ public class TlxTestView extends JFrame {
 				ViewController.getInstance().showMainMenue(TlxTestView.this);
 			}
 		});
-		btnSaveTLX.setBounds(500, yPos+=120, 200, 50);
 		main.add(btnSaveTLX);
 		main.setPreferredSize(new Dimension( mWindowWidth,yPos+70));
 		JScrollPane scrollFrame = new JScrollPane(main, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		main.setAutoscrolls(true);
 		scrollFrame.setPreferredSize(new Dimension(windowWidth,windowHeight));
+		scrollFrame.setBorder(null);
 		scrollFrame.getVerticalScrollBar().setUnitIncrement(5);
 		this.add(scrollFrame);
 		
@@ -67,25 +72,33 @@ public class TlxTestView extends JFrame {
 	
 	public JPanel addNewSlider(String labelText, int yPosition){
 		JPanel contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setLayout(null);
 		contentPane.setBounds(10, yPosition, mWindowWidth-100, 100);
-		contentPane.setBorder(BorderFactory.createTitledBorder(labelText));
+		TitledBorder border = BorderFactory.createTitledBorder(labelText);
+		border.setTitleFont(new Font("Sans-Serif", Font.BOLD, 14));
+		border.setTitleColor(Color.decode("#EEEEEE"));
+		border.setBorder(new MatteBorder(1, 1, 1, 1, Color.decode("#EEEEEE")));
+		contentPane.setBorder(border);
 		
 		JSlider sliderMD = new JSlider();
+		sliderMD.setBackground(Color.DARK_GRAY);
+		sliderMD.setForeground(Color.decode("#EEEEEE"));
 	    sliderMD.setMinorTickSpacing(5);
 	    sliderMD.setMajorTickSpacing(10);
 	    sliderMD.setPaintLabels(true);
 	    sliderMD.setPaintTicks(true);
 	    sliderMD.setBounds(10, 25, 550, 50);
 	    sliderMD.setLabelTable(sliderMD.createStandardLabels(10));
-	    sliderMD.setSnapToTicks(true);	 
+	    sliderMD.setSnapToTicks(true);
 	    
 	    addSliderToArray(sliderMD);
 	    
 	    JLabel valueMD = new JLabel(""+sliderMD.getValue());
 	    valueMD.setBounds(630, 25, 50, 30);
 	    
-	    valueMD.setFont(new Font("Sans-Serif", Font.PLAIN, 22));
+	    valueMD.setFont(new Font("Sans-Serif", Font.BOLD, 22));
+	    valueMD.setForeground(Color.decode("#EEEEEE"));
 	    
 		sliderMD.addChangeListener(new ChangeListener(){
 	    	public void stateChanged(ChangeEvent changeEvent) {

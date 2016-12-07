@@ -1,4 +1,7 @@
+import java.awt.Color;
 import java.awt.EventQueue;
+
+import javax.swing.UIManager;
 
 public class TlxMainView {
 
@@ -11,6 +14,8 @@ public class TlxMainView {
 				try {
 					TlxMainView window = new TlxMainView();
 					ViewController controller = ViewController.getInstance();
+					UIManager.put("Button.select",Color.BLACK);
+					UIManager.put("Slider.thumb", Color.BLACK);
 					controller.showMainMenue(null);
 					
 				} catch (Exception e) {

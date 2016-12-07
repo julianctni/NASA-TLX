@@ -21,6 +21,7 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.JSlider;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.util.logging.*;
 
@@ -30,16 +31,20 @@ public class TlxFirstTestView extends JFrame {
 	private int mWindowWidth;
 	private int radBtnCount = 0;
 	private JRadioButton[] radBtns = new JRadioButton[30];
+	private static Color COLOR_DARK_WHITE = Color.decode("#EEEEEE");
 
 	public TlxFirstTestView(int windowWidth, int windowHeight) {
 		mWindowWidth = windowWidth;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, windowWidth, windowHeight);
 		JPanel main = new JPanel();
+		main.setBorder(null);
+		main.setBackground(Color.DARK_GRAY);
 		main.setLayout(null);
 		int yPos = 20;
 		
 		JLabel tasklabel = new JLabel("Select the member which provided the most significant source of workload variation of each pair!");
+		tasklabel.setForeground(COLOR_DARK_WHITE);
 		tasklabel.setBounds(50, yPos, windowWidth-100, 50);
 		main.add(tasklabel);
 		
@@ -51,152 +56,227 @@ public class TlxFirstTestView extends JFrame {
 		String FRString = "Frustration";
 		
 		JRadioButton radMD1 = new JRadioButton(MDString);
+		radMD1.setBackground(Color.DARK_GRAY);
+		radMD1.setForeground(COLOR_DARK_WHITE);
 		radMD1.setBounds(150, yPos+=50, 200, 20);
 		radMD1.setSelected(true);
 		addRadBtnToArrys(radMD1);
 	    JRadioButton radPD1 = new JRadioButton(PDString);
+	    radPD1.setBackground(Color.DARK_GRAY);
+	    radPD1.setForeground(COLOR_DARK_WHITE);
 	    radPD1.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radPD1);
 	    ButtonGroup groupMDPD = new ButtonGroup();
 	    groupMDPD.add(radMD1);
-	    groupMDPD.add(radPD1);	    
+	    groupMDPD.add(radPD1);
+	    
 	    JRadioButton radMD2 = new JRadioButton(MDString);
 		radMD2.setBounds(150, yPos+=30, 200, 20);
+		radMD2.setBackground(Color.DARK_GRAY);
+		radMD2.setForeground(COLOR_DARK_WHITE);
 		addRadBtnToArrys(radMD2);
 		radMD2.setSelected(true);
+		
 		JRadioButton radTD1 = new JRadioButton(TDString);
 	    radTD1.setBounds(450, yPos, 200, 20);
+	    radTD1.setBackground(Color.DARK_GRAY);
+	    radTD1.setForeground(COLOR_DARK_WHITE);
 	    addRadBtnToArrys(radTD1);
 	    ButtonGroup groupMDTD = new ButtonGroup();
 	    groupMDTD.add(radMD2);
-	    groupMDTD.add(radTD1);	    
+	    groupMDTD.add(radTD1);
+	    
 	    JRadioButton radMD3 = new JRadioButton(MDString);
 	    radMD3.setBounds(150, yPos+=30, 200, 20);
+	    radMD3.setBackground(Color.DARK_GRAY);
+	    radMD3.setForeground(COLOR_DARK_WHITE);
 	    addRadBtnToArrys(radMD3);
 	    radMD3.setSelected(true);
 	    JRadioButton radOP1 = new JRadioButton(OPString);
 	    radOP1.setBounds(450, yPos, 200, 20);
+	    radOP1.setBackground(Color.DARK_GRAY);
+	    radOP1.setForeground(COLOR_DARK_WHITE);
 	    addRadBtnToArrys(radOP1);
 	    ButtonGroup groupMDOP = new ButtonGroup();
 	    groupMDOP.add(radMD3);
-	    groupMDOP.add(radOP1);	    
+	    groupMDOP.add(radOP1);
+	    
 	    JRadioButton radMD4 = new JRadioButton(MDString);
 	    radMD4.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radMD4);
 	    radMD4.setSelected(true);
+	    radMD4.setBackground(Color.DARK_GRAY);
+	    radMD4.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radFR1 = new JRadioButton(FRString);
 	    radFR1.setBounds(450, yPos, 200, 20);
+	    radFR1.setBackground(Color.DARK_GRAY);
+	    radFR1.setForeground(COLOR_DARK_WHITE);
 	    addRadBtnToArrys(radFR1);
 	    ButtonGroup groupMDFR = new ButtonGroup();
 	    groupMDFR.add(radMD4);
-	    groupMDFR.add(radFR1);	    
+	    groupMDFR.add(radFR1);	 
+	    
 	    JRadioButton radMD5 = new JRadioButton(MDString);
 	    radMD5.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radMD5);
 	    radMD5.setSelected(true);
+	    radMD5.setBackground(Color.DARK_GRAY);
+	    radMD5.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radEF1 = new JRadioButton(EFString);
 	    radEF1.setBounds(450, yPos, 200, 20);
+	    radEF1.setBackground(Color.DARK_GRAY);
+	    radEF1.setForeground(COLOR_DARK_WHITE);
 	    addRadBtnToArrys(radEF1);
 	    ButtonGroup groupMDEF = new ButtonGroup();
 	    groupMDEF.add(radMD5);
-	    groupMDEF.add(radEF1);	    
+	    groupMDEF.add(radEF1);
+	    
 	    JRadioButton radPD2 = new JRadioButton(PDString);
 	    radPD2.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radPD2);
 	    radPD2.setSelected(true);
+	    radPD2.setBackground(Color.DARK_GRAY);
+	    radPD2.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radTD2 = new JRadioButton(TDString);
+	    radTD2.setBackground(Color.DARK_GRAY);
+	    radTD2.setForeground(COLOR_DARK_WHITE);
 	    radTD2.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radTD2);
 	    ButtonGroup groupPDTD = new ButtonGroup();
 	    groupPDTD.add(radPD2);
 	    groupPDTD.add(radTD2);
+	    
 	    JRadioButton radPD3 = new JRadioButton(PDString);
 	    radPD3.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radPD3);
 	    radPD3.setSelected(true);
+	    radPD3.setBackground(Color.DARK_GRAY);
+	    radPD3.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radOP2 = new JRadioButton(OPString);
 	    radOP2.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radOP2);
+	    radOP2.setBackground(Color.DARK_GRAY);
+	    radOP2.setForeground(COLOR_DARK_WHITE);
 	    ButtonGroup groupPDOP = new ButtonGroup();
 	    groupPDOP.add(radPD3);
 	    groupPDOP.add(radOP2);
+	    
 	    JRadioButton radPD4 = new JRadioButton(PDString);
 	    radPD4.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radPD4);
 	    radPD4.setSelected(true);
+	    radPD4.setBackground(Color.DARK_GRAY);
+	    radPD4.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radFR2 = new JRadioButton(FRString);
 	    radFR2.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radFR2);
+	    radFR2.setBackground(Color.DARK_GRAY);
+	    radFR2.setForeground(COLOR_DARK_WHITE);
 	    ButtonGroup groupPDFR = new ButtonGroup();
 	    groupPDFR.add(radPD4);
 	    groupPDFR.add(radFR2);
+	    
 	    JRadioButton radPD5 = new JRadioButton(PDString);
 	    radPD5.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radPD5);
 	    radPD5.setSelected(true);
+	    radPD5.setBackground(Color.DARK_GRAY);
+	    radPD5.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radEF2 = new JRadioButton(EFString);
 	    radEF2.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radEF2);
+	    radEF2.setBackground(Color.DARK_GRAY);
+	    radEF2.setForeground(COLOR_DARK_WHITE);
 	    ButtonGroup groupPDEF = new ButtonGroup();
 	    groupPDEF.add(radPD5);
 	    groupPDEF.add(radEF2);
+	    
 	    JRadioButton radTD3 = new JRadioButton(TDString);
 	    radTD3.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radTD3);
 	    radTD3.setSelected(true);
+	    radTD3.setBackground(Color.DARK_GRAY);
+	    radTD3.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radOP3 = new JRadioButton(OPString);
 	    radOP3.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radOP3);
+	    radOP3.setBackground(Color.DARK_GRAY);
+	    radOP3.setForeground(COLOR_DARK_WHITE);
 	    ButtonGroup groupTDOP = new ButtonGroup();
 	    groupTDOP.add(radTD3);
-	    groupTDOP.add(radOP3);	    
+	    groupTDOP.add(radOP3);
+	    
 	    JRadioButton radTD4 = new JRadioButton(TDString);
 	    radTD4.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radTD4);
 	    radTD4.setSelected(true);
+	    radTD4.setBackground(Color.DARK_GRAY);
+	    radTD4.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radFR3 = new JRadioButton(FRString);
 	    radFR3.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radFR3);
+	    radFR3.setBackground(Color.DARK_GRAY);
+	    radFR3.setForeground(COLOR_DARK_WHITE);
 	    ButtonGroup groupTDFR = new ButtonGroup();
 	    groupTDFR.add(radTD4);
 	    groupTDFR.add(radFR3);
+	    
 	    JRadioButton radTD5 = new JRadioButton(TDString);
 	    radTD5.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radTD5);
 	    radTD5.setSelected(true);
+	    radTD5.setBackground(Color.DARK_GRAY);
+	    radTD5.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radEF3 = new JRadioButton(EFString);
 	    radEF3.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radEF3);
+	    radEF3.setBackground(Color.DARK_GRAY);
+	    radEF3.setForeground(COLOR_DARK_WHITE);
 	    ButtonGroup groupTDEF = new ButtonGroup();
 	    groupTDEF.add(radTD5);
 	    groupTDEF.add(radEF3);
+	    
 	    JRadioButton radOP4 = new JRadioButton(OPString);
 	    radOP4.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radOP4);
 	    radOP4.setSelected(true);
+	    radOP4.setBackground(Color.DARK_GRAY);
+	    radOP4.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radFR4 = new JRadioButton(FRString);
 	    radFR4.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radFR4);
+	    radFR4.setBackground(Color.DARK_GRAY);
+	    radFR4.setForeground(COLOR_DARK_WHITE);
 	    ButtonGroup groupOPFR = new ButtonGroup();
 	    groupOPFR.add(radOP4);
 	    groupOPFR.add(radFR4);
+	    
 	    JRadioButton radOP5 = new JRadioButton(OPString);
 	    radOP5.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radOP5);
 	    radOP5.setSelected(true);
+	    radOP5.setBackground(Color.DARK_GRAY);
+	    radOP5.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radEF4 = new JRadioButton(EFString);
 	    radEF4.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radEF4);
+	    radEF4.setBackground(Color.DARK_GRAY);
+	    radEF4.setForeground(COLOR_DARK_WHITE);
 	    ButtonGroup groupOPEF = new ButtonGroup();
 	    groupOPEF.add(radOP5);
 	    groupOPEF.add(radEF4);
+	    
 	    JRadioButton radFR5 = new JRadioButton(FRString);
 	    radFR5.setBounds(150, yPos+=30, 200, 20);
 	    addRadBtnToArrys(radFR5);
 	    radFR5.setSelected(true);
+	    radFR5.setBackground(Color.DARK_GRAY);
+	    radFR5.setForeground(COLOR_DARK_WHITE);
 	    JRadioButton radEF5 = new JRadioButton(EFString);
 	    radEF5.setBounds(450, yPos, 200, 20);
 	    addRadBtnToArrys(radEF5);
+	    radEF5.setBackground(Color.DARK_GRAY);
+	    radEF5.setForeground(COLOR_DARK_WHITE);
 	    ButtonGroup groupFREF = new ButtonGroup();
 	    groupFREF.add(radFR5);
 	    groupFREF.add(radEF5);
@@ -232,7 +312,7 @@ public class TlxFirstTestView extends JFrame {
 	    main.add(radFR5);
 	    main.add(radEF5);
 
-	    JButton btnSaveTLX = new JButton("Absenden");
+	    JButton btnSaveTLX = CustomButtonFactory.createNewButton("Weiter", 500, yPos+=50, 200, 50);
 		btnSaveTLX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int[] weightCounts = {0,0,0,0,0,0};
@@ -265,7 +345,6 @@ public class TlxFirstTestView extends JFrame {
 				ViewController.getInstance().showTest(TlxFirstTestView.this);				
 			}
 		});
-		btnSaveTLX.setBounds(500, yPos+=50, 200, 50);
 		main.add(btnSaveTLX);
 	    	
 		main.setPreferredSize(new Dimension( mWindowWidth,yPos+70));
@@ -273,6 +352,7 @@ public class TlxFirstTestView extends JFrame {
 		main.setAutoscrolls(true);
 		scrollFrame.setPreferredSize(new Dimension(windowWidth,windowHeight));
 		scrollFrame.getVerticalScrollBar().setUnitIncrement(5);
+		scrollFrame.setBorder(null);
 		this.add(scrollFrame);		
 	}
 	
