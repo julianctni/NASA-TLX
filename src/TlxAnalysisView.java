@@ -8,7 +8,6 @@ import javax.swing.border.TitledBorder;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -31,7 +30,7 @@ public class TlxAnalysisView extends JFrame {
 		main.setBackground(Color.DARK_GRAY);
 		main.setLayout(null);
 
-		int yPos = 50;
+		int yPos = 20;
 		for(int i = 0; i < ViewController.getInstance().values.size(); i++){
 			main.add(addNewAnalysis(i, "Proband "+(i+1), yPos));	
 			yPos+=310;
