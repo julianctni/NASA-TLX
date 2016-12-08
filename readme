@@ -1,0 +1,29 @@
+Manual NASA-TLX-APP:
+
+MAIN MENU:
+The main menu is the startscreen of the application. From here you can get to every other part. The menu contains 5 buttons.
+
+"Start test" -> Start new TLX test.
+"Analysis" -> Show evaluated data of all finished TLX tests. 
+"Reset" -> Delete the data of all finished TLX tests.
+"Export" -> Export the evaluated data of all tests as a json-file.
+"Close" -> Close the programm.
+
+"Analysis"-button, "Reset"-button and "Export"-button are only enabled if there is at least one test result.
+
+
+START TEST:
+Start test will start a new TLX test. The first sreen shows pairs of two of the TLX-criteria. For each pair one has to be selected via radio button. At the end this has to be confirmed by clicking on the "Continue"-button. After that the six criteria should be rated by dragging the sliders to the appropriate value. This second test step is confirmed by clicking the "Finish test"-button.
+After this the main menu will be shown again and the test for one proband is finished.
+
+ANALYSIS:
+The analysis screen shows the evaluated data for all finished tests. You can see the weights which are evaluated from the first test screen with the radio buttons, the values the user has chosen on the sliders at the second test screen, the product of both, a sum of all products, a sum of all weights and the evaluated average value which is the result of the TLX.
+
+RESET:
+By clicking on this button all saved data from finished tests will be deleted and the app will be on the state from the app start.
+
+EXPORT:
+Clicking that button shows a small text field, where you can type the name for the export file. By default it consists of the "tlx-" prefix and a current timestamp. You don't have to put any file extension to the name. After that just click the "Save"-button. The results will be saved as a JSON file in the same folder the JAR file is in.
+
+CLOSE:
+By clicking this button the app will be closed. All data, which has not been exported, will be deleted.

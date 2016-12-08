@@ -1,7 +1,9 @@
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class ViewController {
 
@@ -72,6 +74,7 @@ public class ViewController {
 	public String createJson(){
 		String result = "[";
 		int count = 0;
+		
 		for (int[] weight : weights){
 			String tempResult = "{\"result"+count+"\":{";
 			int[] value = values.get(count);
@@ -80,11 +83,24 @@ public class ViewController {
 			tempResult += "\"temporal-demand\":{\"weight\":" + weight[2] + ", \"result\":"+value[2]+"},";
 			tempResult += "\"performance\":{\"weight\":" + weight[3] + ", \"result\":"+value[3]+"},";
 			tempResult += "\"frustration\":{\"weight\":" + weight[4] + ", \"result\":"+value[4]+"},";
-			tempResult += "\"effort\":{\"weight\":" + weight[5] + ", \"result\":"+value[5]+"}}}";
+			tempResult += "\"effort\":{\"weight\":" + weight[5] + ", \"result\":"+value[5]+"},";
+			tempResult += "\"results\":{\"sum\":" + createSum(value, weight) + ", \"avg\":"+createSum(value, weight)/15+"}}}";
 			tempResult += count+1 < weights.size() ? "," : "";
 			result += tempResult;
 			count++;
 		}
 		return result+"]";
+	}
+	
+	
+	public int createSum(int[] values, int[] weights){
+		int result = 0;
+		int count = 0;
+		for (int i : values){
+			
+			result += i*weights[count];
+			count++;
+		}
+		return result;
 	}
 }

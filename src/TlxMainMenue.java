@@ -129,7 +129,6 @@ public class TlxMainMenue extends JFrame {
 				try {
 					String path = TlxMainMenue.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
 					path = path.substring(0, path.lastIndexOf("/") + 1);
-					System.out.println(path);
 					Writer writer = new BufferedWriter(new OutputStreamWriter(
 									new FileOutputStream(path + exportName.getText()+".json"), "utf-8"));
 					writer.write(ViewController.getInstance().createJson());
