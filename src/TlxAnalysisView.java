@@ -108,7 +108,7 @@ public class TlxAnalysisView extends JFrame {
 		weiSum.setBounds(400, innerY+=30, 200, 30);
 		contentPane.add(weiSum);
 		
-		JLabel avg = new JLabel("AVG: " + (prodSum/weightsSum));
+		JLabel avg = new JLabel("AVG: " + (Math.round((float)prodSum/(float)weightsSum)));
 		avg.setForeground(Color.decode("#EEEEEE"));
 		avg.setBounds(400, innerY+=30, 200, 30);
 		contentPane.add(avg);

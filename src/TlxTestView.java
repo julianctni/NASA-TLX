@@ -51,13 +51,23 @@ public class TlxTestView extends JFrame {
 					Sld.setValue(50);
 					i++;
 				}
+				ViewController.getInstance().resetFirstTestFrame();
 				ViewController.getInstance().values.add(tempArray);
 
 				ViewController.getInstance().showMainMenue(TlxTestView.this);
 				JOptionPane.showMessageDialog(null, "Thanks for participating!");
 			}
 		});
+		
+		JButton btnBack = CustomButtonFactory.createNewButton("Back", 50, yPos, 250, 50);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ViewController.getInstance().showFirstTest(TlxTestView.this);
+			}
+		});
+		
 		main.add(btnSaveTLX);
+		main.add(btnBack);
 		main.setPreferredSize(new Dimension( mWindowWidth,yPos+70));
 		JScrollPane scrollFrame = new JScrollPane(main, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		main.setAutoscrolls(true);

@@ -8,9 +8,9 @@ import javax.swing.JLabel;
 public class ViewController {
 
 	private TlxMainMenue mainMenueFrame;
-	private JFrame analysisFrame;
-	private JFrame testFrame;
-	private JFrame firstTestFrame;
+	private TlxAnalysisView analysisFrame;
+	private TlxTestView testFrame;
+	private TlxFirstTestView firstTestFrame;
 	int windowWidth = 800;
 	int windowHeight = 680;
 	int x,y;
@@ -84,7 +84,7 @@ public class ViewController {
 			tempResult += "\"performance\":{\"weight\":" + weight[3] + ", \"result\":"+value[3]+"},";
 			tempResult += "\"frustration\":{\"weight\":" + weight[4] + ", \"result\":"+value[4]+"},";
 			tempResult += "\"effort\":{\"weight\":" + weight[5] + ", \"result\":"+value[5]+"},";
-			tempResult += "\"results\":{\"sum\":" + createSum(value, weight) + ", \"avg\":"+createSum(value, weight)/15+"}}}";
+			tempResult += "\"results\":{\"sum\":" + createSum(value, weight) + ", \"avg\":"+Math.floor((float)createSum(value, weight)/15f)+"}}}";
 			tempResult += count+1 < weights.size() ? "," : "";
 			result += tempResult;
 			count++;
@@ -102,5 +102,9 @@ public class ViewController {
 			count++;
 		}
 		return result;
+	}
+	
+	public void resetFirstTestFrame(){
+		firstTestFrame.resetRadioButtons();
 	}
 }

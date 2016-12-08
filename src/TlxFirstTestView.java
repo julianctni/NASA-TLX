@@ -258,7 +258,7 @@ public class TlxFirstTestView extends JFrame {
 	    main.add(radFR5);
 	    main.add(radEF5);
 
-	    JButton btnSaveTLX = CustomButtonFactory.createNewButton("Continue", 400, yPos+=50, 250, 50);
+	    JButton btnSaveTLX = CustomButtonFactory.createNewButton("Continue", 430, yPos+=50, 250, 50);
 		btnSaveTLX.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				int[] weightCounts = {0,0,0,0,0,0};
@@ -280,20 +280,20 @@ public class TlxFirstTestView extends JFrame {
 						
 					}
 				}
-				int count = 0;
-				for(JRadioButton btn : radBtns){
-					if (count%2 == 0)
-						btn.setSelected(true);
-					else
-						btn.setSelected(false);
-					count++;
-				}
+				
 				ViewController.getInstance().weights.add(weightCounts);
 				ViewController.getInstance().showTest(TlxFirstTestView.this);				
 			}
 		});
 		
+		JButton btnBack = CustomButtonFactory.createNewButton("Back", 120, yPos, 250, 50);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				ViewController.getInstance().showMainMenue(TlxFirstTestView.this);
+			}
+		});
 		
+		main.add(btnBack);
 		main.add(btnSaveTLX);
 	    	
 		main.setPreferredSize(new Dimension( mWindowWidth,yPos+70));
@@ -310,5 +310,16 @@ public class TlxFirstTestView extends JFrame {
 		radBtnCount++;
 		if(radBtnCount == 30)
 			radBtnCount = 0;
+	}
+	
+	public void resetRadioButtons(){
+		int count = 0;
+		for(JRadioButton btn : radBtns){
+			if (count%2 == 0)
+				btn.setSelected(true);
+			else
+				btn.setSelected(false);
+			count++;
+		}
 	}
 }
