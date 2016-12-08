@@ -18,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 
 public class TlxTestView extends JFrame {
@@ -53,6 +54,7 @@ public class TlxTestView extends JFrame {
 				ViewController.getInstance().values.add(tempArray);
 
 				ViewController.getInstance().showMainMenue(TlxTestView.this);
+				JOptionPane.showMessageDialog(null, "Thanks for participating!");
 			}
 		});
 		main.add(btnSaveTLX);

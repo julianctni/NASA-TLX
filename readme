@@ -7,6 +7,7 @@ The main menu is the startscreen of the application. From here you can get to ev
 "Analysis" -> Show evaluated data of all finished TLX tests. 
 "Reset" -> Delete the data of all finished TLX tests.
 "Export" -> Export the evaluated data of all tests as a json-file.
+"Import" -> Import an exported test result.
 "Close" -> Close the programm.
 
 "Analysis"-button, "Reset"-button and "Export"-button are only enabled if there is at least one test result.
@@ -24,6 +25,9 @@ By clicking on this button all saved data from finished tests will be deleted an
 
 EXPORT:
 Clicking that button shows a small text field, where you can type the name for the export file. By default it consists of the "tlx-" prefix and a current timestamp. You don't have to put any file extension to the name. After that just click the "Save"-button. The results will be saved as a JSON file in the same folder the JAR file is in.
+
+IMPORT:
+Clicking on that button opens a file chooser dialog, where you can choose an JSON file, you exported before. After having chosen that file, you can watch the imported results by clicking on "Analysis"-Button.
 
 CLOSE:
 By clicking this button the app will be closed. All data, which has not been exported, will be deleted.
